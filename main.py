@@ -13,22 +13,6 @@ import tkinter as tk
 from utils import *
 from init import *
 
-
-class Mouse:
-    def __init__(self):
-        self.status = 'draw'
-        self.moves = []
-
-    def normal(self):
-        self.status = 'draw'
-
-    def circle(self):
-        self.status = 'circle'
-
-    def Rect(self):
-        self.status = 'rect'
-
-
 if __name__ == '__main__':
     mouse = Mouse()
     #* 初始化窗口

@@ -9,12 +9,17 @@
 @License :   (C)Copyright 2022-2023, USTB_MedicalAI
 @Desc    :   {draw_func}
 '''
-X_BIAS = 0
-Y_BIAS = 0
+import math
 
 
 def view_line(canvas, mouse):
     canvas.create_line(mouse.moves, width=2)
+
+
+def view_straight(canvas, mouse):
+    start_x, start_y, end_x, end_y, _, _ = circle_pos(mouse)
+    canvas.delete('view_line')
+    canvas.create_line(start_x, start_y, end_x, end_y, width=2, tag='view_line')
 
 
 def view_circle(canvas, mouse):
@@ -37,15 +42,37 @@ def turtle_line(event, t, mouse):
     mouse.moves.clear()
 
 
+def turtle_straight(canvas, t, mouse):
+    start_x, start_y, end_x, end_y, _, _ = circle_pos(mouse)
+    canvas.create_line(start_x, start_y, end_x, end_y, width=2, tag='line_confirm')
+    angle = math.atan((end_y - start_y) / (end_x - start_x)) * 180 / math.pi
+    # if angle<0:
+    #     angle = 180 + angle
+    # elif angle >360:
+    # angle = angle - 360
+    # print(angle)
+    if end_x - start_x < 0:
+        angle = angle + 180
+    print(angle)
+    t.up()
+    t.goto(start_x, start_y)
+    t.down()
+    t.seth(angle)
+    t.forward(math.sqrt((end_x - start_x)**2 + (end_y - start_y)**2))
+
+    mouse.moves.clear()
+
+
 def turtle_circle(event, canvas, t, mouse):
     start_x, start_y, new_end_x, new_end_y = circle_end_pos(mouse)
-    _, _, end_x, end_y, center_x, center_y = circle_pos(mouse)
+    center_x = (start_x + new_end_x) / 2
+    r = (new_end_y - start_y) / 2
     canvas.create_oval(start_x, start_y, new_end_x, new_end_y, width=2, tag='confirm')
     # if is_circle(mouse):
     t.up()
-    t.goto(center_x, end_y)
+    t.goto(center_x, start_y)
     t.down()
-    t.circle((end_x - start_x) / 2)
+    t.circle(r)
     # else:
     # oval(t, mouse)
     mouse.moves.clear()
@@ -54,16 +81,19 @@ def turtle_circle(event, canvas, t, mouse):
 def turtle_rect(event, canvas, t, mouse):
     start_x, start_y, end_x, end_y, _, _ = circle_pos(mouse)
     canvas.create_rectangle(start_x, start_y, end_x, end_y, width=2, tag='rec_confirm')
+    h, w = end_y - start_y, end_x - start_x
     t.up()
+    t.seth(0)
     t.goto(start_x, start_y)
     t.down()
-    t.fd(end_x - start_x)
-    t.rt(90)
-    t.fd(end_y - start_y)
-    t.rt(90)
-    t.fd(end_x - start_x)
-    t.rt(90)
-    t.fd(end_y - start_y)
+    t.forward(w)
+    t.left(90)
+    t.forward(h)
+    t.left(90)
+    t.forward(w)
+    t.left(90)
+    t.forward(h)
+    t.left(90)
     mouse.moves.clear()
 
 
@@ -112,3 +142,8 @@ def oval(t, mouse):
     for i in range(120):
         t.rt(3)
         t.fd(1)
+
+
+def angle(start_x, start_y, end_x, end_y):
+    angle = math.atan2(end_y - start_y, end_x - start_x)
+    return angle

@@ -14,11 +14,31 @@ import tkinter as tk
 from draw_func import *
 
 
+class Mouse:
+    def __init__(self):
+        self.status = 'draw'
+        self.moves = []
+
+    def normal(self):
+        self.status = 'draw'
+
+    def circle(self):
+        self.status = 'circle'
+
+    def rect(self):
+        self.status = 'rect'
+
+    def straight(self):
+        self.status = 'straight'
+
+
 # 移动鼠标时画出轨迹
 def preview_func(event, canvas, mouse):
     mouse.moves.append((event.x, event.y))
     if mouse.status == 'draw':
         view_line(canvas, mouse)
+    elif mouse.status == 'straight':
+        view_straight(canvas, mouse)
     elif mouse.status == 'circle':
         view_circle(canvas, mouse)
     elif mouse.status == 'rect':
@@ -32,21 +52,11 @@ def draw_func(event, t, canvas, mouse):
         turtle_circle(event, canvas, t, mouse)
     if mouse.status == 'rect':
         turtle_rect(event, canvas, t, mouse)
-
-
-def normal_status(mouse):
-    mouse.normal()
-
-
-def circle_status(mouse):
-    mouse.circle()
-
-
-def Rect_status(mouse):
-    mouse.Rect()
+    if mouse.status == 'straight':
+        turtle_straight(canvas, t, mouse)
 
 
 def clear(canvas, turtle_canvas, mouse):
-    print('clear')
     canvas.delete('all')
     turtle_canvas.delete('all')
+    mouse.moves.clear()

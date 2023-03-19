@@ -26,10 +26,13 @@ def init(mouse):
     #* 创建右侧窗口
     turtle_canvas = tk.Canvas(root, width=720, height=720)
     turtle_canvas.pack(side="right", fill="both", expand=True)
-    set_button(canvas, turtle_canvas, mouse, 'Circle', circle_status, 0, 0)
-    set_button(canvas, turtle_canvas, mouse, 'Clear', clear, 0, 30, True)
-    set_button(canvas, turtle_canvas, mouse, 'Draw', normal_status, 0, 60)
-    set_button(canvas, turtle_canvas, mouse, 'RecTangle', Rect_status, 0, 90)
+    set_button(canvas, turtle_canvas, mouse, 'Draw', mouse.normal, 0, 0)
+    set_button(canvas, turtle_canvas, mouse, 'Line', mouse.straight, 0, 30)
+    set_button(canvas, turtle_canvas, mouse, 'Circle', mouse.circle, 0, 60)
+    set_button(canvas, turtle_canvas, mouse, 'RecTangle', mouse.rect, 0, 90)
+    set_button(canvas, turtle_canvas, mouse, 'Clear', clear, 0, 120, True)
+
+
     root.grid_columnconfigure(0)
     root.grid_rowconfigure(0)
     return root, canvas, turtle_canvas
@@ -39,7 +42,7 @@ def set_button(canvas, turtle_canvas, mouse, text, func, x, y, flag=False):
     if flag:
         button = tk.Button(canvas, text=text, command=lambda: func(canvas, turtle_canvas, mouse), width=8, height=1)
     else:
-        button = tk.Button(canvas, text=text, command=lambda: func(mouse), width=8, height=1)
+        button = tk.Button(canvas, text=text, command=func, width=8, height=1)
     button.pack(padx=10, pady=10, fill=tk.BOTH, expand=True)
     button.place(x=x, y=y)
     return button
@@ -53,7 +56,11 @@ def init_turtle(canvas, speed, bgcolor='white', pencolor='red', pensize=2):
     t.pencolor(pencolor)
     t.pensize(pensize)
     t.speed(speed)
+    t.up()
+    t.goto(700,30)
+    # t.down()
+    t.write('M202210594 陈云青', font=('Times', 20, 'normal'), align='right')
     # t.down()
     # t.goto(20, 50)
-    t.hideturtle()
+    # t.hideturtle()
     return t
