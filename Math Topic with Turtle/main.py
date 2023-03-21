@@ -7,7 +7,7 @@
 @Version :   1.0
 @Contact :   serein7z@163.com
 @License :   (C)Copyright 2022-2023, USTB_MedicalAI
-@Desc    :   {main function}
+@Desc    :   {draw mathematical with Turtle}
 '''
 import turtle
 from init import *
