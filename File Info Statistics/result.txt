@@ -1,0 +1,100 @@
+总行数: 149
+注释行数: 19
+空行数: 28
+有效代码行数: 102
+代码行平均长度: 39
+最大缩进层级: 2
+if语句数: 3
+for语句数量: 2
+while语句数量: 0
+try语句数量: 0
+except语句数量: 0
+函数数量: 13
+函数平均行数: 8
+变量数: 63
+变量名平均长度: 6
+
+函数view_straight定义变量:
+    start_x
+    start_y
+    end_x
+    end_y
+    _
+
+函数view_circle定义变量:
+    start_x
+    start_y
+    new_end_x
+    new_end_y
+
+函数view_Rect定义变量:
+    start_x
+    start_y
+    end_x
+    end_y
+    _
+
+函数turtle_straight定义变量:
+    start_x
+    start_y
+    end_x
+    end_y
+    _
+    angle
+
+函数turtle_circle定义变量:
+    start_x
+    start_y
+    new_end_x
+    new_end_y
+    center_x
+    r
+
+函数turtle_rect定义变量:
+    start_x
+    start_y
+    end_x
+    end_y
+    _
+    h
+    w
+
+函数circle_pos定义变量:
+    start_x
+    start_y
+    end_x
+    end_y
+    center_x
+    center_y
+
+函数circle_end_pos定义变量:
+    start_x
+    start_y
+    end_x
+    end_y
+    length_1
+    length_2
+    circle_edge
+    new_end_x
+    new_end_y
+
+函数is_circle定义变量:
+    start_x
+    start_y
+    end_x
+    end_y
+    center_x
+    center_y
+
+函数oval定义变量:
+    start_x
+    start_y
+    end_x
+    end_y
+    center_x
+    center_y
+    oval_top_x
+    oval_top_y
+
+函数angle定义变量:
+    angle
