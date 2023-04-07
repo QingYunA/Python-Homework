@@ -2,8 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
-"PDF Notebook/notebook.pdf"
-PDF\ Notebook/notebook.pdf
+/PDF-Notebook/notebook.pdf
 # C extensions
 *.so
 
