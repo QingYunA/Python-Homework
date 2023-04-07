@@ -3,7 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 /PDF-Notebook/notebook.pdf
-/PDF-Notebook/*.pdf
+PDF-Notebook/CH07.pdf
 # C extensions
 *.so
 
