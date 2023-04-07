@@ -311,4 +311,4 @@ b = func(var=1) #传参赋值=周边无空格
 
 2. 写入txt文件
 
-![1679551265567](image/README/1679551265567.png)
+![image](https://cdn.staticaly.com/gh/QingYunA/my-img@main/img/image.6f40kq801xg.webp)
