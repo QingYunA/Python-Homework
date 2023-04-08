@@ -89,6 +89,8 @@ c.drawInlineImage(bar_code_path,
 
 ### 4. 效果展示
 
+生成的notebook.pdf文件较大，无法传至cg系统，下载链接如下：
+[notebook.pdf](https://drive.google.com/file/d/1MPn9ZDTKdINVvsQX3NRECyEIUCvHRM19/view?usp=share_link)
 1. 局部放大图，包含pdf，横线，右上角带有学号的条形码
 
 ![image](https://cdn.staticaly.com/gh/QingYunA/my-img@main/img/image.719e0rrhx680.webp)

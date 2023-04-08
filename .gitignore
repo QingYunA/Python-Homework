@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 /PDF-Notebook/notebook.pdf
 PDF-Notebook/CH07.pdf
+/PDF-Notebook/PDF-Notebook.zip
 # C extensions
 *.so
 
